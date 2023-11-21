@@ -15,7 +15,7 @@ def splitPlainText(plain):
 
 def createMatrix(key):
     key = key.lower().replace('j', 'i')
-    key = list(set(key))
+    key = list(key)
     letters = "abcdefghiklmnopqrstuvwxyz"
     index = 0
     for i in range(5):
@@ -30,6 +30,7 @@ def createMatrix(key):
                     if letter not in key:
                         matrix[i][j] = letter
                         break
+    print(matrix)
     return matrix
 
 
@@ -59,8 +60,8 @@ def encrypt(plain, key):
 
 
 def main():
-    plainText = input("Enter the plain text: ")
-    key = input("Enter the value of Key: ")
+    plainText = input("Enter the plain text: ").replace(" ","")
+    key = input("Enter the value of Key: ").replace(" ","")
     cipherText = encrypt(plainText, key)
     print("Encrypted Text:", cipherText)
 

@@ -1,12 +1,14 @@
-# Initialize an empty 3x3 matrix
-matrix = [[0]*3 for _ in range(3)]
-print(matrix)
+matrix=[[0]*5 for _ in range(5)]
 
-# Populate the matrix with user input
-for i in range(3):
-    for j in range(3):
-        matrix[i][j] = int(input(f"Enter value for position ({i+1}, {j+1}): "))
-
-# Print the matrix
 for row in matrix:
     print(row)
+
+print("kavi"*5)
+
+
+k="Venkat"
+
+for i in k:
+    print(i)
+for pair in k:
+    print(pair)
