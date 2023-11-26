@@ -42,8 +42,6 @@ def findIndex(mat, x):
 
 def encrypt(plain, key):
     plainSplit = splitPlainText(plain)
-
-    
     matrix = createMatrix(key)
     cipherText = ""
     for i in range(len(plainSplit)):
@@ -55,7 +53,6 @@ def encrypt(plain, key):
             cipherText += matrix[(a[0] + 1) % 5][a[1]] + matrix[(b[0] + 1) % 5][b[1]]
         else:  # Different row and column
             cipherText += matrix[a[0]][b[1]] + matrix[b[0]][a[1]]
-
     return cipherText
 
 

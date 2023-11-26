@@ -1,5 +1,5 @@
 import numpy as np
-letters = "abcdefghiklmnopqrstuvwxyz"
+letters = "abcdefghijklmnopqrstuvwxyz"
 
 def createKeyMatrix(n):
     keyMatrix=[[0]*n for _ in range(n)]
@@ -13,11 +13,16 @@ def createKeyMatrix(n):
 def findTheIndex(x):
     return letters.index(x)
 
-def en(plainMat,keyMat):
-    a=np.array(plainMat)
-    b=np.array(keyMat)
-    Mul=np.matmul(a,b)
-    return np.mod(Mul,26)
+def en(plainMat, keyMat): 
+    a = np.array(plainMat)
+    b = np.array(keyMat)
+    
+    print(a)
+    print(b)
+    result = np.dot(b,a)
+    result=np.mod(result,26)
+    return result
+
 
 def de(ChiperMat,keyMat):
     pass
@@ -28,12 +33,13 @@ def main():
     plainText=input("Enter the plain text (length of plain must be equal to {n}) :").lower()
     plainTextMat=[]
     for i in plainText:
-        plainTextMat.append(findTheIndex(i))
+        plainTextMat.append([findTheIndex(i)])
+    print(plainTextMat)
     enMat=en(plainTextMat,Mat)
+    print(enMat)
     encoding=''
     for i in range (len(enMat)):
-        encoding+=letters[enMat[i]]
-    print("Encryption of plaintext is "+encoding)
+        print(letters[enMat[i][0]])
 
     #print()
     #pass
